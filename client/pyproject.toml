@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "beam"
+version = "0.1.0"
+description = "Simple File Sharing"
+authors = ["Blake Smith <blakeinvictoria@gmail.com>"]
+license = "GPL"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+click = "^8.0.1"
+asyncclick = "^8.0.1"
+anyio = "^3.3.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+pytest-asyncio = "^0.15.1"
+pytest-aiohttp = "^0.3.0"
+black = {version = "^21.8b0", allow-prereleases = true}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+
+beam = "beam.cli:send"
