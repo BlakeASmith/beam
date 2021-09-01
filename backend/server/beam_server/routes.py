@@ -23,8 +23,9 @@ async def upload_file(request: web.Request) -> web.Response:
 
     with open(next(file_ids), "wb") as f:
         f.write(data["file"].file.read())
-
-    return web.Response(status=201)
+        return web.json_response(
+            status=201, data={"url": f"{request.app['url']}/download/{f.name}"}
+        )
 
 
 @api.get("/download/{file_id}")
@@ -34,7 +35,9 @@ async def download_file(request: web.Request) -> web.Response:
     # Need to prevent local file inclustion
 
     try:
-        with open(file_id, "r") as f:
-            ...
+        return web.FileResponse(
+            file_id,
+            status=200,
+        )
     except FileNotFoundError:
         return web.Response(status=404, text=f"{file_id=} does not exist.")

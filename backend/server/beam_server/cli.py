@@ -29,6 +29,8 @@ async def start(host, port):
     app = web.Application()
     app.add_routes(api)
 
+    app["url"] = f"http://{host}:{port}"
+
     runner = web.AppRunner(app)
 
     await runner.setup()
