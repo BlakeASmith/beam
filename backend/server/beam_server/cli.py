@@ -29,7 +29,7 @@ async def start(host, port):
     app = web.Application()
     app.add_routes(api)
 
-    app["url"] = f"http://{host}:{port}"
+    app["url"] = f"http://beam.blakeas.tk"
 
     runner = web.AppRunner(app)
 

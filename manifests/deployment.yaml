@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: beam-deployment
+  labels:
+    app: beam
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: beam
+  template:
+    metadata:
+      labels:
+        app: beam
+    spec:
+      containers:
+      - name: beam
+        image: blakeasmith/beam-server
+        ports:
+        - containerPort: 80

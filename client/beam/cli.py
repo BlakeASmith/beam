@@ -1,7 +1,7 @@
 import asyncclick as click
 from aiohttp import ClientSession
 
-SERVER_URL = "http://localhost:30777"
+SERVER_URL = "http://beam.blakeas.tk"
 
 
 @click.group()

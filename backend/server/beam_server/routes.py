@@ -1,4 +1,3 @@
-from asyncio.protocols import DatagramProtocol
 import logging
 from aiohttp import web
 from uuid import uuid4
